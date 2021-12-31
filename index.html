@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="images/icon-192x192.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/6a2607df46.js" crossorigin="anonymous" defer></script>
     <title>Song Association</title>
 </head>
 <body>
@@ -36,16 +37,18 @@
                 </li>
             </ul>
         </div>
-        <div class="hero">
-            <img src="images/undraw_select_player_64ca 1.png" alt="Two players in front of their avatars">
-        </div>
-        <div class="nameInputForm">
-            <h1>Enter player name</h1>
-            <form>
-                <input type="text" name="playerName" id="playerName">
-                <button type="submit" name="setPlayerName" id="setPlayerName">Continue</button>
-            </form>
-            <button name="showInstructions" id="showInstructions">How to play</button>
+        <div class="intro">
+            <div class="hero">
+                <img src="images/undraw_select_player_64ca 1.png" alt="Two players in front of their avatars">
+            </div>
+            <div class="nameInputForm">
+                <h1>Enter player name</h1>
+                <form id="playerForm">
+                    <input type="text" name="playerName" id="playerName" />
+                    <button type="submit" name="setPlayerName" id="setPlayerName">Continue</button>
+                </form>
+                <button name="showInstructions" id="showInstructions">How to play</button>
+            </div>
         </div>
         <div class="instructions">
             <div class="instructionsCard">
@@ -57,25 +60,75 @@
                     <button type="menu" name="hideInstructions" id="hideInstructions">Close instructions</button>
             </div>
         </div>
+        <div class="mainMenu">
+            <div class="namePlaceholder">
+                <div class="playerIcon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h4 id="welcomeMessage"></h4>
+                <div class="trophyIcon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h4 id="trophyMessage">0</h4>
+            </div>
+            <h2>Choose a word list</h2>
+            <div class="options">
+                <div class="option" id="option1">
+                    <i class="fas fa-book-open"></i>
+                    <span>One</span>
+                </div>
+                <div class="option" id="option2">
+                    <i class="fas fa-book-open"></i>
+                    <span>Two</span>
+                </div>
+                <div class="option" id="option3">
+                    <i class="fas fa-book-open"></i>
+                    <span>Three</span>
+                </div>
+                <div class="option" id="option4">
+                    <i class="fas fa-book-open"></i>
+                    <span>Four</span>
+                </div>
+            </div>
+            <small>Not you? ( <a href="#" id="changePlayer">Change player</a> )</small>
+        </div>
+        <div class="timerMenu">
+            <div class="namePlaceholder">
+                <div class="playerIcon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h4 id="welcomeMessage"></h4>
+                <div class="trophyIcon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h4 id="trophyMessage">0</h4>
+            </div>
+            <h2>Choose timer difficulty</h2>
+            <div class="decreaseBtn">
+                <i class="fas fa-caret-left"></i>
+            </div>
+            <div class="increaseBtn">
+                <i class="fas fa-caret-right"></i>
+            </div>
+            <div class="timer">
+                <svg width="151" height="180" viewBox="0 0 151 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="75" cy="105" r="75" fill="#C4C4C4"/>
+                    <circle cx="75.5" cy="105.5" r="57.5" fill="white"/>
+                    <rect x="59" width="32" height="15" rx="7.5" fill="#C4C4C4"/>
+                    <rect x="68" y="16" width="15" height="15" fill="#C4C4C4"/>
+                    <rect x="131.743" y="28" width="24.6033" height="10.8255" rx="5.41275" transform="rotate(41.222 131.743 28)" fill="#C4C4C4"/>
+                    <rect x="129.339" y="41.2452" width="11.5328" height="10.8255" transform="rotate(41.222 129.339 41.2452)" fill="#C4C4C4"/>
+                    </svg>                    
+                <h1 class="timerLabel">10s</h1>
+            </div>
+            <div class="difficultyLabel">Master</div>
+            <div class="setTimer">
+                <a class="setTimerBtn">Set timer</a>
+            </div>
+        </div>
     </div>
-    <script>
-        document.getElementById("playerName").focus();
-
-        const instructions = document.querySelector(".instructions");
-
-        const showInstructions = document.getElementById("showInstructions");
-
-        showInstructions.addEventListener('click', function() {
-            instructions.style.transform = "translateY(0)";
-            instructions.style.transition = "1000ms";
-            instructions.style.zIndex = "1";
-        });
-
-        hideInstructions.addEventListener('click', function() {
-            instructions.style.transform = "translateY(530px)";
-            instructions.style.transition = "1000ms";
-            instructions.style.zIndex = "-1";
-        });
-    </script>
+    <script src="js/intro.js"></script>
+    <script src="js/mainMenu.js"></script>
+    <script src="js/game.js"></script>
 </body>
 </html>
