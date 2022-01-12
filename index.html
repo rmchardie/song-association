@@ -37,6 +37,16 @@
                 </li>
             </ul>
         </div>
+        <div class="namePlaceholder">
+            <div class="playerIcon">
+                <i class="fas fa-user"></i>
+            </div>
+            <h4 id="welcomeMessage"></h4>
+            <div class="trophyIcon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h4 id="trophyMessage">00</h4>
+        </div>
         <div class="intro">
             <div class="hero">
                 <img src="images/undraw_select_player_64ca 1.png" alt="Two players in front of their avatars">
@@ -61,16 +71,6 @@
             </div>
         </div>
         <div class="mainMenu">
-            <div class="namePlaceholder">
-                <div class="playerIcon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h4 id="welcomeMessage"></h4>
-                <div class="trophyIcon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h4 id="trophyMessage">0</h4>
-            </div>
             <h2>Choose a word list</h2>
             <div class="options">
                 <div class="option" id="option1">
@@ -93,16 +93,6 @@
             <small>Not you? ( <a href="#" id="changePlayer">Change player</a> )</small>
         </div>
         <div class="timerMenu">
-            <div class="namePlaceholder">
-                <div class="playerIcon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <h4 id="welcomeMessage"></h4>
-                <div class="trophyIcon">
-                    <i class="fas fa-trophy"></i>
-                </div>
-                <h4 id="trophyMessage">0</h4>
-            </div>
             <h2>Choose timer difficulty</h2>
             <div class="decreaseBtn">
                 <i class="fas fa-caret-left"></i>
@@ -123,12 +113,45 @@
             </div>
             <div class="difficultyLabel">Master</div>
             <div class="setTimer">
-                <a class="setTimerBtn">Set timer</a>
+                <a class="setTimerBtn">GET READY!</a>
+            </div>
+        </div>
+        <div class="gamePanel">
+            <div class="timer">
+                <svg width="151" height="180" viewBox="0 0 151 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="75" cy="105" r="75" fill="#C4C4C4"/>
+                    <circle cx="75.5" cy="105.5" r="57.5" fill="white"/>
+                    <rect x="59" width="32" height="15" rx="7.5" fill="#C4C4C4"/>
+                    <rect x="68" y="16" width="15" height="15" fill="#C4C4C4"/>
+                    <rect x="131.743" y="28" width="24.6033" height="10.8255" rx="5.41275" transform="rotate(41.222 131.743 28)" fill="#C4C4C4"/>
+                    <rect x="129.339" y="41.2452" width="11.5328" height="10.8255" transform="rotate(41.222 129.339 41.2452)" fill="#C4C4C4"/>
+                    </svg>                    
+                <h1 class="gameTimer"></h1>
+            </div>
+            <div class="wordContainer">Attention</div>
+            <div class="controls">
+                <div class="btn restart">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <div class="btn playPause">
+                    <i class="fas fa-pause"></i>
+                </div>
+                <div class="btn settings">
+                    <i class="fas fa-cog"></i>
+                </div>
+            </div>
+        </div>
+        <div class="restartPanel">
+            <div class="restartCard">
+                    <p>Are you sure you want to restart the game?</p>
+                    <button type="menu" name="confirmRestart" id="confirmRestart">OK</button>
+                    <button type="menu" name="cancelRestart" id="cancelRestart">Cancel</button>
             </div>
         </div>
     </div>
     <script src="js/intro.js"></script>
     <script src="js/mainMenu.js"></script>
+    <script src="js/settings.js"></script>
     <script src="js/game.js"></script>
 </body>
 </html>

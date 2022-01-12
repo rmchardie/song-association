@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wordColl">Word List: </div>
+    <div class="chosenWord">Selected word: </div>
+    <button class="generate">Generate words</button>
+    <button class="choose">Choose word</button>
+    <script>
+        let words = ["sound", "rose", "kick", "kiss", "little", "cool", "chance", "trousers", "cheer", "machine", "music", "mine" , "hanging", "larger", "blind", "discover", "throw", "laugh", "big", "chase", "sleep", "trouble", "myself", "faster", "slow", "request", "sender", "fire", "life", "world", "summer", "love", "home", "today", "don\'t", "rain", "heart", "under", "all", "good", "fun", "end", "bold", "somebody", "over", "one", "cry", "secret", "save", "yourself", "bye", "run", "brick", "eye", "day", "tonight", "tear", "thing", "begin", "lucky", "party", "march", "heal", "royal", "cross", "silence", "changes", "attention", "marry", "reason", "even", "from", "moment", "I", "want", "it", "that", "way", "tale", "time", "strong", "low", "beauty", "bird", "brown", "let", "sun", "hero", "holding", "out", "wonderful", "take", "memory", "queen", "my", "your", "song", "always", "careless", "living", "prayer", "wild", "one", "night", "coming", "back", "me", "pocket", "sunshine", "sorry"];
+
+        let wordsArr = [];
+
+        const generate = document.querySelector(".generate");
+        const choose = document.querySelector(".choose");
+
+        const cont = document.querySelector(".wordColl");
+        const cont2 = document.querySelector(".chosenWord");
+
+        function generateWord() {
+
+            for (let i=0; i < 10; i++) {
+                let rand = words[Math.floor(Math.random() * words.length)];
+                wordsArr.push(rand);
+                songSelect = words.indexOf(rand);
+                words.splice(songSelect, 1);
+            }
+
+            cont.textContent = "Word List: " + wordsArr;
+        }
+
+        function selectWord() {
+            if (wordsArr.length != 0) {
+                let selectedWord = wordsArr[Math.floor(Math.random() * wordsArr.length)];
+                cont.textContent = "Word List: " + wordsArr;
+                cont2.textContent = "Selected word: " + selectedWord;
+                wordsArr.splice(selectedWord, 1);
+                console.log("Words remaining: " + wordsArr.length);
+            } else {
+                choose.style.pointerEvents = "none";
+                cont.textContent = "Word List: <empty>";
+                cont2.textContent = "Selected word: <empty>";
+            }
+        }
+
+        generate.addEventListener("click", function(){
+            generateWord();
+            choose.style.pointerEvents = "unset";
+        })
+
+        choose.addEventListener("click", function() {
+            selectWord();
+        })
+    </script>
+</body>
+</html>

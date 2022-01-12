@@ -1,59 +1,52 @@
-let playerList;
-let playerTimer = 10;
-let timerLabel = document.querySelector(".timerLabel");
-let difficultyLabel = document.querySelector(".difficultyLabel");
+let trophyMessage = document.querySelector("#trophyMessage");
+let trophies = 00;
 
-const option1 = document.getElementById("option1");
-const option2 = document.getElementById("option2");
-const option3 = document.getElementById("option3");
-const option4 = document.getElementById("option4");
+const restartBtn = document.querySelector(".restart");
+const playPauseBtn = document.querySelector(".playPause");
+const settingsBtn = document.querySelector(".settings");
+const confirmRestartBtn = document.querySelector("#confirmRestart");
+const cancelRestartBtn = document.querySelector("#cancelRestart");
 
-const decreaseTimer = document.querySelector(".decreaseBtn");
-const increaseTimer = document.querySelector(".increaseBtn");
+const restartPanel = document.querySelector(".restartPanel");
 
-
-option1.addEventListener("click", function() {
-    playerList = 1;
-    alert(playerList);
-});
-
-option2.addEventListener("click", function() {
-    playerList = 2;
-    alert(playerList);
-});
-
-option3.addEventListener("click", function() {
-    playerList = 3;
-    alert(playerList);
-});
-
-option4.addEventListener("click", function() {
-    playerList = 4;
-    alert(playerList);
-});
-
-decreaseTimer.addEventListener("click", function() {
-    if (playerTimer != 10) {
-        playerTimer = playerTimer - 10;
-        console.log(playerTimer);
-        timerLabel.textContent = `${playerTimer}s`;
-        difficultyLabel.textContent = "Novice";
-        increaseTimer.style.color = "#0077ff";
-        if (playerTimer === 10) {
-            decreaseTimer.style.color = "#818181";
-            difficultyLabel.textContent = "Master";
-        }
-    }
+restartBtn.addEventListener("click", function() {
+    restartPanel.style.zIndex = "1";
+    restartPanel.style.transform = "translateY(0vh)";
+    restartPanel.style.transition = "500ms";
 })
 
-increaseTimer.addEventListener("click", function() {
-    playerTimer = playerTimer + 10;
-    console.log(playerTimer);
-    timerLabel.textContent = `${playerTimer}s`;
-    difficultyLabel.textContent = "Novice";
-    decreaseTimer.style.color = "#0077ff";
-    if (playerTimer === 30) {
-        increaseTimer.style.color = "#818181";
-        difficultyLabel.textContent = "Beginner";
+playPauseBtn.addEventListener("click", function() {
+    trophies++;
+    if (trophies === 10) {
+        this.classList.add("disabled");
     }
+    if (trophies < 10) {
+        trophyMessage.textContent = "0" + trophies;
+    } else {
+        trophyMessage.textContent = trophies;
+    }
+    selectWord();
+})
+
+settingsBtn.addEventListener("click", function() {
+    console.log("Game Settings!");
+})
+
+confirmRestartBtn.addEventListener("click", function() {
+    mainMenu.style.transform = "translateX(0%)";
+    mainMenu.style.transition = "1000ms";
+    mainMenu.style.zIndex = "2";
+    timerMenu.style.transform = "translateX(100%)";
+    restartPanel.style.transform = "translateY(100vh)";
+    restartPanel.style.transition = "500ms";
+    restartPanel.style.zIndex = "-1";
+    timerMenu.style.zIndex = "-1";
+    gamePanel.style.zIndex = "-1";
+    resetTimers();
+})
+
+cancelRestartBtn.addEventListener("click", function() {
+    restartPanel.style.transform = "translateY(100vh)";
+    restartPanel.style.transition = "500ms";
+    restartPanel.style.zIndex = "-1";
 })
