@@ -1,7 +1,7 @@
 {
     "theme_color": "#0077ff",
     "background_color": "#0077ff",
-    "display": "browser",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/index.html",
     "name": "Song Association",
@@ -9,22 +9,22 @@
     "description": "Beat the timer and sing a song from a displayed word",
     "icons": [
         {
-            "src": "/icon-192x192.png",
+            "src": "/images/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/icon-256x256.png",
+            "src": "/images/icon-256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "/icon-384x384.png",
+            "src": "/images/icon-384x384.png",
             "sizes": "384x384",
             "type": "image/png"
         },
         {
-            "src": "/icon-512x512.png",
+            "src": "/images/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }

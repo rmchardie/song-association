@@ -33,7 +33,6 @@ function selectWord() {
         wordContainer.textContent = selectedWord;
         wordIndex = wordsArr.indexOf(selectedWord);
         wordsArr.splice(wordIndex, 1);
-        console.log(wordsArr);
     } else {
         wordContainer.textContent = "<List empty>";
     }
@@ -43,6 +42,9 @@ const showTimers = () => {
     timerMenu.style.transform = "translateX(0)";
     timerMenu.style.transition = "500ms";
     timerMenu.style.zIndex = 2;
+    settingsPanel.style.transform = "translateY(100vh)";
+    settingsPanel.style.transition = "500ms";
+    settingsPanel.style.zIndex = "-1";
 }
 
 const resetTimers = () => {
@@ -112,7 +114,10 @@ setTimerBtn.addEventListener("click", function() {
     setTimeout(function() {
         gamePanel.style.zIndex = "1";
     }, 500);
-    gameTimer.textContent = playerTimer + "s";
+    gameTimer.textContent = "0:" + playerTimer;
+    timeLimit = playerTimer;
     mainMenu.style.zIndex = "-1";
     selectWord();
+    playPauseBtn.classList.remove("disabled");
+    startTimer();
 })

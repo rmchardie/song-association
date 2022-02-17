@@ -64,9 +64,8 @@
             <div class="instructionsCard">
                     <p>Choose a set of words</p>
                     <p>Set timer difficulty</p>
-                    <p>A random word will be displayed on the screen</p>
-                    <p>Hit pause if you can sing a song before the timer runs out</p>
-                    <p>If you can you win a trophy!</p>
+                    <p>Each time you hit the next button a random word will pop up on the screen</p>
+                    <p>If you can sing a song with that word in it before the timer runs out you'll win a trophy!</p>
                     <button type="menu" name="hideInstructions" id="hideInstructions">Close instructions</button>
             </div>
         </div>
@@ -134,11 +133,33 @@
                     <i class="fas fa-undo"></i>
                 </div>
                 <div class="btn playPause">
-                    <i class="fas fa-pause"></i>
+                    <i class="fas fa-forward" id="playIcon"></i>
                 </div>
                 <div class="btn settings">
                     <i class="fas fa-cog"></i>
                 </div>
+            </div>
+        </div>
+        <div class="timesUpPanel">
+            <div class="timesUpCard">
+                    <h1>Oops!</h1>
+                    <h3>You've ran out of time!</h3>
+                    <a class="setTimer setTimerBtn" id="tryAgain">Ready for a new word?</a>
+                    <small>
+                        <a href='https://www.freepik.com/vectors/background'>Image created by 0melapics - www.freepik.com</a>
+                    </small>
+            </div>
+        </div>
+        <div class="levelCompletedPanel">
+            <div class="levelCompletedCard">
+                    <h1>Well done!</h1>
+                    <h3>Trophies won:</h3>
+                    <i class="fas fa-trophy totalTrophies"></i>
+                    <div class="trophiesWon"></div>
+                    <a class="setTimer setTimerBtn" id="tryAgain">Go to the next level</a>
+                    <small>
+                        Photo by <a href="https://unsplash.com/@dendrolago89?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Damiano Lingauri</a> on <a href="https://unsplash.com/s/photos/confetti?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+                    </small>
             </div>
         </div>
         <div class="restartPanel">
@@ -148,10 +169,33 @@
                     <button type="menu" name="cancelRestart" id="cancelRestart">Cancel</button>
             </div>
         </div>
+        <div class="settingsPanel">
+            <div class="settingsCard">
+                <div class="options">
+                    <div class="option" id="settingsRestart">
+                        <i class="fas fa-undo"></i>
+                        <span>Reset game</span>
+                    </div>
+                    <div class="option" id="settingsWords">
+                        <i class="fas fa-book-open"></i>
+                        <span>Word List</span>
+                    </div>
+                    <div class="option" id="settingsTimers">
+                        <i class="fas fa-stopwatch"></i>
+                        <span>Set timer</span>
+                    </div>
+                    <div class="option cancelBtn" id="cancelSettings">
+                        <i class="fas fa-times"></i>
+                        <span>Cancel</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="js/intro.js"></script>
     <script src="js/mainMenu.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/timer.js"></script>
 </body>
 </html>
